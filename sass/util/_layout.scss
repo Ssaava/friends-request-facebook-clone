@@ -1,0 +1,210 @@
+@use "function" as f;
+@use "color" as c;
+
+html {
+  box-sizing: border-box;
+  max-width: f.rem(400);
+  margin: 0 auto;
+  background-color: c.$background-color;
+}
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+body {
+  width: 100%;
+  font-family: system-ui;
+  box-shadow: 0 0 15px gray;
+}
+nav {
+  background-color: c.$background-color;
+  position: sticky;
+  top: 0;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: f.rem(10);
+    padding-bottom: 20px;
+    padding: 10px;
+    &__left {
+      display: flex;
+      gap: 5px;
+    }
+    &__right {
+      display: flex;
+      gap: 5px;
+    }
+  }
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(229, 229, 229);
+    padding: 10px;
+    .icon {
+      position: relative;
+      cursor: pointer;
+      font-size: f.rem(24);
+      &:nth-of-type(1)::after {
+        content: "15+";
+        position: absolute;
+        color: white;
+        background-color: c.$about-icon;
+        font-size: f.rem(10);
+        font-weight: 700;
+        padding: 1px;
+        border-radius: 15px;
+        top: -5px;
+        left: 40%;
+      }
+      &:nth-of-type(4)::after {
+        content: "1";
+        position: absolute;
+        color: white;
+        background-color: c.$about-icon;
+        font-size: f.rem(10);
+        font-weight: 700;
+        width: 16px;
+        height: 16px;
+        border-radius: 100%;
+        padding: 1px;
+        border-radius: 15px;
+        top: -5px;
+        left: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      input[type="search"] {
+        outline: none;
+        display: none;
+        border: 1px solid gray;
+        border-radius: 25px;
+        padding: 5px 10px;
+        // transition: 5s;
+      }
+      &:hover {
+        input[type="search"] {
+          display: inline-block;
+        }
+      }
+
+      .search-icon {
+        background: rgb(229, 229, 229);
+        border-radius: 100%;
+        width: 27px;
+        height: 27px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+section {
+  .top {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+    div {
+      border-radius: 25px;
+      padding: 7px 10px;
+      background-color: rgb(229, 229, 229);
+      font-size: f.rem(13);
+      font-weight: 700;
+    }
+  }
+  .requests-text {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 0 10px;
+    border-bottom: 0.5px solid rgb(229, 229, 229);
+    p {
+      font-size: f.rem(12);
+      cursor: pointer;
+      color: rgb(80, 80, 255);
+    }
+  }
+  .requests {
+    padding: 10px;
+    .card {
+      display: flex;
+      gap: 10px;
+      .img {
+        img {
+          width: 90px;
+          height: 90px;
+          object-fit: cover;
+          border-radius: 100%;
+        }
+      }
+      .about {
+        width: 100%;
+        .name {
+          display: flex;
+          justify-content: space-between;
+          h6 {
+            font-size: f.rem(14);
+          }
+          p {
+            font-size: f.rem(10);
+          }
+        }
+        .mutual {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: f.rem(12);
+          color: rgb(73, 73, 73);
+          padding: 5px 0;
+          img {
+            width: 25px;
+            height: 25px;
+            object-fit: cover;
+            border-radius: 100%;
+            border: 2px solid white;
+            &:nth-of-type(2) {
+              margin-left: -12px;
+              z-index: -1;
+            }
+          }
+        }
+        .action {
+          button {
+            padding: 5px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.5s;
+            &:nth-of-type(1) {
+              background-color: rgb(16, 16, 255);
+              color: white;
+              &:hover {
+                background-color: rgb(119, 119, 255);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
